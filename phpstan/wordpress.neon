@@ -1,0 +1,7 @@
+# Shared PHPStan defaults for WordPress projects. Include it from the project's
+# phpstan.neon; paths, bootstrap files and ignores stay in the project.
+# WordPress stubs load through szepeviktor/phpstan-wordpress (extension-installer).
+parameters:
+	level: 7
+	# WordPress docblocks promise types that callers routinely break.
+	treatPhpDocTypesAsCertain: false

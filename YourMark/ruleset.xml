@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<ruleset name="YourMark">
+	<description>WordPress Coding Standards with YourMark's house exceptions.</description>
+
+	<arg name="extensions" value="php"/>
+
+	<exclude-pattern>*/vendor/*</exclude-pattern>
+	<exclude-pattern>*/node_modules/*</exclude-pattern>
+
+	<rule ref="WordPress">
+		<!-- Short arrays are enforced below instead. -->
+		<exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+		<exclude name="Universal.Arrays.DisallowShortArraySyntax"/>
+
+		<!-- PSR-4 PascalCase filenames (Plugin.php), not class-plugin.php. -->
+		<exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+		<exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+
+		<!-- Non-Yoda is enforced below instead. -->
+		<exclude name="WordPress.PHP.YodaConditions.NotYoda"/>
+
+		<!-- Generic PHPDoc types (WP_REST_Request<array<string, mixed>>) for PHPStan. -->
+		<exclude name="Squiz.Commenting.FunctionComment.IncorrectTypeHint"/>
+
+		<!-- Namespaced hook names: vendor/location/name. -->
+		<exclude name="WordPress.NamingConventions.ValidHookName.UseUnderscores"/>
+	</rule>
+
+	<rule ref="Generic.Arrays.DisallowLongArraySyntax"/>
+	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
+
+	<!-- Tests: method names document themselves, and stubs group doubles in one file. -->
+	<rule ref="Squiz.Commenting.FunctionComment">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Squiz.Commenting.InlineComment.InvalidEndChar">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="WordPress.WP.AlternativeFunctions">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.CodeAnalysis.UnusedFunctionParameter">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Universal.Files.SeparateFunctionsFromOO">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+	<rule ref="Generic.Files.OneObjectStructurePerFile">
+		<exclude-pattern>*/tests/*</exclude-pattern>
+	</rule>
+</ruleset>

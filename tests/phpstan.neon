@@ -1,0 +1,6 @@
+includes:
+	- ../phpstan/wordpress.neon
+
+parameters:
+	paths:
+		- fixtures/pass.php
